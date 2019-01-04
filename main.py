@@ -1,4 +1,5 @@
 from complex import ComplexNumber, Vector
+from qubit import Qubit
 #
 # Wektory
 #
@@ -49,3 +50,9 @@ print(f'Sprzężenie: {ComplexNumber(2, 3).conjugate()}')
 
 # Moduł
 print(f'Moduł: {ComplexNumber(2, 2).module()}')
+
+
+# print(Qubit(0, 1).hgate())
+qb = Qubit(0, 1+2j)
+print(qb.hgate())
+print(qb.measure())
