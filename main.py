@@ -54,5 +54,7 @@ print(f'Moduł: {ComplexNumber(2, 2).module()}')
 
 # print(Qubit(0, 1).hgate())
 qb = Qubit(0, 1+2j)
+print(qb)
+print(qb.xgate())
 print(qb.hgate())
 print(qb.measure())
