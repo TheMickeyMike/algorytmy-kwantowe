@@ -30,7 +30,22 @@ class Qubit:
         self.value = gate.matrix * self.value
 
 
-qb = Qubit(1, 0)
+# qb = Qubit(1, 0)  # Qubit value 0
+# print(qb)
+# print(qb.apply(X))
+# print(qb)
+
+# qb = Qubit(1, 0)  # Qubit value 0
+# print(qb)
+# print(qb.apply(Y))
+# print(qb)
+
+# qb = Qubit(0, 1)  # Qubit value 0
+# print(qb)
+# print(qb.apply(Z))
+# print(qb)
+
+qb = Qubit(1, 0)  # Qubit value 0
 print(qb)
-print(qb.apply(X))
+print(qb.apply(H))
 print(qb)

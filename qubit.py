@@ -12,7 +12,29 @@ class Qubit:
 
     def xgate(self):
         '''Apply a NOT (X) gate'''
-        self.zero, self.one = self.one, self.zero
+        x = matrix([[0, 1], [1, 0]])
+        curr = matrix([[self.zero], [self.one]])
+        new = numpy.asarray(x * curr)
+        self.zero = new[0][0]
+        self.one = new[1][0]
+        return self
+
+    def ygate(self):
+        '''Apply a (Y) gate'''
+        y = matrix([[0, -1j], [1j, 0]])
+        curr = matrix([[self.zero], [self.one]])
+        new = numpy.asarray(y * curr)
+        self.zero = new[0][0]
+        self.one = new[1][0]
+        return self
+
+    def zgate(self):
+        '''Apply a (Z) gate'''
+        z = matrix([[1, 0], [0, -1]])
+        curr = matrix([[self.zero], [self.one]])
+        new = numpy.asarray(z * curr)
+        self.zero = new[0][0]
+        self.one = new[1][0]
         return self
 
     def hgate(self):
@@ -40,3 +62,9 @@ class Qubit:
 
     def __repr__(self):
         return str(self.zero) + " |0> + " + str(self.one) + " |1>\n"
+
+
+qb = Qubit(0, 1)
+print(qb)
+qb.ygate()
+print(qb)
