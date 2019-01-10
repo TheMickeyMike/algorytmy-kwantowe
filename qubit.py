@@ -7,6 +7,8 @@ import random
 
 class Qubit:
     def __init__(self, a, b):
+        assert abs(complex(a)) ** 2 + abs(complex(b)
+                                          ) ** 2 == 1, 'Nie spełnia warunku: |α|^2 + |β|^2 = 1'
         self.zero = complex(a)
         self.one = complex(b)
 
@@ -27,7 +29,7 @@ class Qubit:
         y = matrix([
             [0, -1j],
             [1j, 0]
-        ])
+        ], dtype=numpy.complex64)
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(y * curr)
         self.zero = new[0][0]
@@ -39,7 +41,7 @@ class Qubit:
         z = matrix([
             [1, 0],
             [0, -1]
-        ])
+        ], dtype=numpy.complex64)
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(z * curr)
         self.zero = new[0][0]
@@ -51,7 +53,7 @@ class Qubit:
         h = numpy.multiply((1.0 / numpy.sqrt(2)), matrix([
             [1, 1],
             [1, -1]
-        ]))
+        ], dtype=numpy.complex64))
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(h * curr)
         self.zero = new[0][0]

@@ -6,11 +6,22 @@ class QGate:
         self.matrix = matrix
 
 
-H = QGate(np.matrix([[1, 1], [1, -1]], dtype=np.complex64)
-          * (1.0 / np.sqrt(2)))
-X = QGate(np.matrix([[0, 1], [1, 0]], dtype=np.complex64))
-Y = QGate(np.matrix([[0, -1j], [1j, 0]], dtype=np.complex64))
-Z = QGate(np.matrix([[1, 0], [0, -1]], dtype=np.complex64))
+H = QGate(np.matrix([
+    [1, 1],
+    [1, -1]
+], dtype=np.complex64) * (1.0 / np.sqrt(2)))
+X = QGate(np.matrix([
+    [0, 1],
+    [1, 0]
+], dtype=np.complex64))
+Y = QGate(np.matrix([
+    [0, -1j],
+    [1j, 0]
+], dtype=np.complex64))
+Z = QGate(np.matrix([
+    [1, 0],
+    [0, -1]
+], dtype=np.complex64))
 
 
 class Qubit:
@@ -46,6 +57,8 @@ class Qubit:
 # print(qb)
 
 qb = Qubit(1, 0)  # Qubit value 0
+print(qb)
+print(qb.apply(H))
 print(qb)
 print(qb.apply(H))
 print(qb)
