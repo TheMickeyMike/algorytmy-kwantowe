@@ -12,7 +12,10 @@ class Qubit:
 
     def xgate(self):
         '''Apply a NOT (X) gate'''
-        x = matrix([[0, 1], [1, 0]])
+        x = matrix([
+            [0, 1],
+            [1, 0]
+        ])
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(x * curr)
         self.zero = new[0][0]
@@ -21,7 +24,10 @@ class Qubit:
 
     def ygate(self):
         '''Apply a (Y) gate'''
-        y = matrix([[0, -1j], [1j, 0]])
+        y = matrix([
+            [0, -1j],
+            [1j, 0]
+        ])
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(y * curr)
         self.zero = new[0][0]
@@ -30,7 +36,10 @@ class Qubit:
 
     def zgate(self):
         '''Apply a (Z) gate'''
-        z = matrix([[1, 0], [0, -1]])
+        z = matrix([
+            [1, 0],
+            [0, -1]
+        ])
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(z * curr)
         self.zero = new[0][0]
@@ -39,7 +48,10 @@ class Qubit:
 
     def hgate(self):
         '''Apply a Hadamard gate'''
-        h = matrix([[1, 1], [1, -1]]) * (1.0 / math.sqrt(2))
+        h = numpy.multiply((1.0 / numpy.sqrt(2)), matrix([
+            [1, 1],
+            [1, -1]
+        ]))
         curr = matrix([[self.zero], [self.one]])
         new = numpy.asarray(h * curr)
         self.zero = new[0][0]
@@ -64,7 +76,9 @@ class Qubit:
         return str(self.zero) + " |0> + " + str(self.one) + " |1>\n"
 
 
-qb = Qubit(0, 1)
+qb = Qubit(1, 0)
 print(qb)
-qb.ygate()
+qb.hgate()
+print(qb)
+qb.hgate()
 print(qb)
