@@ -29,6 +29,14 @@ class ComplexNumber:
     def module(self):
         return ComplexNumber(math.sqrt(self.r ** 2 + self.i ** 2), 0)
 
+    def __eq__(self, complex):
+        if self.r == complex.r and self.i == complex.i:
+            return True
+        return False
+
+    def qubit_repr(self):
+        return f'{self.r}+{self.i}i'
+
     def __repr__(self):
         format = ''
         if self.r != 0:
